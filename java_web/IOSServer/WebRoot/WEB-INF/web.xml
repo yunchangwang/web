@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<filter>
+		<filter-name>MyFilter</filter-name>
+		<filter-class>com.wyc.Servlets.MyFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>MyFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+  <servlet>
+    <servlet-name>test</servlet-name>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <description>This is the description of my J2EE component</description>
+    <servlet-class>com.wyc.Servlets.test</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>test2</servlet-name>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <description>This is the description of my J2EE component</description>
+    <servlet-class>com.wyc.Servlets.test2</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>test3</servlet-name>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <description>This is the description of my J2EE component</description>
+    <servlet-class>com.wyc.Servlets.test3</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>test_adr</servlet-name>
+  	<servlet-class>com.wyc.Servlets.test_adr</servlet-class>
+  </servlet>
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>test</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>test2</servlet-name>
+    <url-pattern>/test2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>test3</servlet-name>
+    <url-pattern>/test3</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>test_adr</servlet-name>
+  	<url-pattern>/test_adr</url-pattern>
+  </servlet-mapping>
+
+</web-app>
