@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wyc.mapping.AdminMapping">
+	<!-- 配置res1返回结果 -->
+	<resultMap type="Admin" id="res1">
+		<id  property="Admin_id"        column="Admin_id" javaType="int" jdbcType="INTEGER"/>  
+	    <result property="Admin_name"       column="Admin_name" javaType="String" jdbcType="VARCHAR"/>  
+	    <result property="Admin_password"        column="Admin_password"  javaType="String" jdbcType="VARCHAR"/>
+	</resultMap>
+	<resultMap type="User" id="res2">
+		<id  property="User_id"        column="User_id" javaType="int" jdbcType="INTEGER"/>  
+	    <result property="User_name"       column="User_name" javaType="String" jdbcType="VARCHAR"/>
+	    <result property="Path" column="path" javaType="String" jdbcType="VARCHAR"/>
+	</resultMap>
+	<select id="check_admin" parameterType="Admin" resultMap="res1">
+		select * from admin where Admin_name=#{Admin_name}
+	</select>
+	<select id="get_count" resultType="Int">
+		select Count(*) from user 
+	</select>
+	<select id="select_userName_all" resultMap="res2">
+		select User_id,User_name,path from user limit #{num,jdbcType=INTEGER},#{pageSize,jdbcType=INTEGER} 
+	</select>
+	<select id="select_user_one" resultMap="res2">
+		select User_id,User_name,path from user where User_id=#{User_id,jdbcType=INTEGER} or User_name=#{User_name,jdbcType=VARCHAR}
+	</select>
+</mapper>

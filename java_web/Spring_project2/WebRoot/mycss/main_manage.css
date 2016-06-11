@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+body{
+	margin:0 auto;
+	width:80%;
+}
+h1{
+	font-style: italic;
+	font-size:50px;
+}
+#td{
+	text-align:center;
+	font-size: 30px;
+}

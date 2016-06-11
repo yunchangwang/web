@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wyc.mapping.ReportMapping">
+	<resultMap type="report" id="res1">
+		<id property="Id" column="Id" javaType="long" jdbcType="BIGINT"/>
+		<result property="Photo_nums" column="Photo_nums" javaType="int" jdbcType="INTEGER"/>
+		<result property="Accuracy" column="Accuracy" javaType="float" jdbcType="FLOAT"/>
+		<result property="Time" column="Time" javaType="java.sql.Timestamp" jdbcType="TIMESTAMP"/>
+		<result property="Action_time" column="Action_time" javaType="float" jdbcType="FLOAT"/>
+		<result property="User_id" column="User_id" javaType="int" jdbcType="INTEGER"/>
+	</resultMap>
+
+	<select id="select_userAccuracy_all" resultMap="res1">
+		select * from report,user where report.User_id=user.User_id and report.User_id=#{User_id,jdbcType=INTEGER} limit #{num,jdbcType=INTEGER},#{pageSize,jdbcType=INTEGER}
+	</select>
+	<select id="get_count" parameterType="Int" resultType="Int">
+		select Count(*) from report where User_id=#{User_id,jdbcType=INTEGER}
+	</select>
+</mapper>

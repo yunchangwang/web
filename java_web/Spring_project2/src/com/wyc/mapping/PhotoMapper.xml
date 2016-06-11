@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wyc.mapping.PhotoMapping">
+	<update id="save_photo">
+		update user set path=#{path,jdbcType=VARCHAR} where User_id=#{User_id,jdbcType=INTEGER}
+	</update>
+	<update id="delete_photo">
+		update user set path='images/0000.gif' where User_id=#{User_id,jdbcType=INTEGER}
+	</update>
+	<select id="get_path" resultType="String">
+		select path from user where User_id=#{User_id,jdbcType=INTEGER}
+	</select>
+</mapper>

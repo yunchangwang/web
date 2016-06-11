@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<!--   
+    namespace：必须与对应的接口全类名一致  
+    id:必须与对应接口的某个对应的方法名一致  
+    parameterType:接口方法中函数的参数类型
+    resultType:接口方法返回的结果类型
+ -->  
+<mapper namespace="com.wyc.mapping.UserMapping">
+	<resultMap type="com.wyc.model.User" id="result">  
+	    <id  property="id"        column="id" javaType="int" jdbcType="INTEGER"/>  
+	    <result property="name"       column="name" javaType="String" jdbcType="VARCHAR"/>  
+	    <result property="passwd"        column="passwd"  javaType="String" jdbcType="VARCHAR"/>  
+	    <result property="email"   column="email"  javaType="String" jdbcType="VARCHAR"/>  
+	    <result property="age"  column="age" javaType="int" jdbcType="TINYINT" />  
+	</resultMap> 
+	<select id="checkUser" parameterType="User" resultMap="result">  
+        select * from user1 where name=#{name}
+    </select>
+    <select id="Count" resultType="int">
+    	select Count(*) from user1;
+    </select>
+    <!-- 一般insert默认是会返回手影响的行数 -->
+    <!--<insert id="insertUser" parameterType="User">
+    	insert into user1 (name,passwd,email,age) values (#{name},#{passwd},#{email},#{age});
+    </insert>-->
+    <!-- 如何获得插入记录的主键 -->
+    <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+    	insert into user1 (name,passwd,email,age) values (#{name},#{passwd},#{email},#{age});
+    </insert>
+    <!-- 分页 -->
+    <select id="fenye" resultMap="result">
+    	select * from user1 limit 0,4
+    </select>
+</mapper>

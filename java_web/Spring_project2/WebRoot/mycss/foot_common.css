@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+.foot_div{
+	position:absolute;
+	bottom:0px;
+	width:80%;
+	height:10%;
+	<!--background-color: red;-->
+}
+.foot_div_div1{
+	float:left;
+	width:50%;
+	height:80%;
+}
+.foot_div_div2{
+	float:left;
+	width:50%;
+	height:80%;
+	text-align: right;
+}
+#img2{
+	float:left;
+	width:50px;
+	height:50px;
+}

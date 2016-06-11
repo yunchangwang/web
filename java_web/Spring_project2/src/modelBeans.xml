@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+<bean id="admin" class="com.wyc.model.Admin">
+	<property name="Admin_id" value="0"/>
+	<property name="Admin_name" value="null"/>
+	<property name="Admin_password" value="null"/>
+</bean>
+<bean id="user" class="com.wyc.model.User">
+	<property name="User_id" value="0"/>
+	<property name="User_name" value="null"/>
+	<property name="User_password" value="null"/>
+	<property name="Path" value="null"/>
+</bean>
+<bean id="fenye" class="com.wyc.model.fenye">
+	<property name="pageCount" value="0"/>
+	<property name="List">
+		<list>
+			<ref local="user"/>
+		</list>
+	</property>
+	<property name="List2">
+		<list>
+			<ref local="report"/>
+		</list>
+	</property>
+</bean>
+<!-- 用于类型的转换，spring默认注入式string类型的 -->
+<bean id="dateFormat" class="java.text.SimpleDateFormat">  
+        <constructor-arg value="yyyy-MM-dd hh:mm:ss" />  
+</bean> 
+
+<bean id="report" class="com.wyc.model.report">
+	<property name="Id" value="0"/>
+	<property name="Photo_nums" value="0"/>
+	<property name="Accuracy" value="0"/>
+	<property name="Time">
+		<bean factory-bean="dateFormat" factory-method="parse">
+			<constructor-arg value="2016-4-26 00:00:00"/>
+		</bean>
+	</property>
+	<property name="Action_time" value="0"/>
+	<property name="User_id" value="0"/>
+</bean>
+</beans>

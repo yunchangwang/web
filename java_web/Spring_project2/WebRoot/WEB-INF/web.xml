@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>-->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+<!-- 为了使用spring而配置的 -->
+	<context-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>
+  			classpath:beans.xml;classpath:modelBeans.xml;classpath:serviceBeans.xml
+  		</param-value>
+  	</context-param>
+  
+  	<!-- 配置过滤器 -->
+	  <filter>
+	  	<filter-name>FilterServlet</filter-name>
+	  	<filter-class>com.wyc.servlet.FilterServlet</filter-class>
+	  	<init-param>
+	  		<param-name>encoding</param-name>
+	  		<param-value>UTF-8</param-value>
+	  	</init-param>
+	  </filter>
+	  <filter-mapping>
+	  	<filter-name>FilterServlet</filter-name>
+	  	<url-pattern>/*</url-pattern>
+	  </filter-mapping>
+	  
+	  <listener>
+    	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  	  </listener>
+  
+	  <servlet>
+	    <servlet-name>LoginServlet</servlet-name>
+	    <servlet-class>com.wyc.servlet.LoginServlet</servlet-class>
+	  </servlet>
+	  <servlet>
+	  	<servlet-name>CodeServlet</servlet-name>
+	  	<servlet-class>com.wyc.servlet.CodeServlet</servlet-class>
+	  </servlet>
+	  <servlet>
+	  	<servlet-name>UpPhotoServlet</servlet-name>
+	  	<servlet-class>com.wyc.servlet.UpPhotoServlet</servlet-class>
+	  </servlet>
+	  <servlet>
+	  	<servlet-name>SavePhotoServlet</servlet-name>
+	  	<servlet-class>com.wyc.servlet.SavePhotoServlet</servlet-class>
+	  </servlet>
+	  <servlet>
+	  	<servlet-name>DelPhotoServlet</servlet-name>
+	  	<servlet-class>com.wyc.servlet.DelPhotoServlet</servlet-class>
+	  </servlet>
+	  <servlet>
+	  	<servlet-name>LogoutServlet</servlet-name>
+	  	<servlet-class>com.wyc.servlet.LogoutServlet</servlet-class>
+	  </servlet>
+	  <servlet>
+	  	<servlet-name>UserManagerServlet</servlet-name>
+	  	<servlet-class>com.wyc.servlet.UserManagerServlet</servlet-class>
+	  </servlet>
+	  <servlet>
+	  	<servlet-name>MainPhotoServlet</servlet-name>
+	  	<servlet-class>com.wyc.servlet.MainPhotoServlet</servlet-class>
+	  </servlet>
+	  <servlet>
+	  	<servlet-name>TestManagerServlet</servlet-name>
+	  	<servlet-class>com.wyc.servlet.TestManagerServlet</servlet-class>
+	  </servlet>
+	  <servlet>
+	  	<servlet-name>UserSearchServlet</servlet-name>
+	  	<servlet-class>com.wyc.servlet.UserSearchServlet</servlet-class>
+	  </servlet>
+	  <servlet>
+	  	<servlet-name>GetPathServlet</servlet-name>
+	  	<servlet-class>com.wyc.servlet.GetPathServlet</servlet-class>
+	  </servlet>
+	  <!-- 这个配置只是为了测试-->
+	  <servlet>
+	  	<servlet-name>TestServlet</servlet-name>
+	  	<servlet-class>com.wyc.servlet.TestServlet</servlet-class>
+	  </servlet>
+	  
+	  <servlet-mapping>
+	    <servlet-name>LoginServlet</servlet-name>
+	    <url-pattern>/LoginServlet</url-pattern>
+	  </servlet-mapping>
+	  <servlet-mapping>
+	  	<servlet-name>CodeServlet</servlet-name>
+	  	<url-pattern>/CodeServlet</url-pattern>
+	  </servlet-mapping>
+	  <servlet-mapping>
+	  	<servlet-name>UpPhotoServlet</servlet-name>
+	  	<url-pattern>/UpPhotoServlet</url-pattern>
+	  </servlet-mapping>
+	  <servlet-mapping>
+	  	<servlet-name>SavePhotoServlet</servlet-name>
+	  	<url-pattern>/SavePhotoServlet</url-pattern>
+	  </servlet-mapping>
+	  <servlet-mapping>
+	  	<servlet-name>DelPhotoServlet</servlet-name>
+	  	<url-pattern>/DelPhotoServlet</url-pattern>
+	  </servlet-mapping>
+	  <servlet-mapping>
+	  	<servlet-name>LogoutServlet</servlet-name>
+	  	<url-pattern>/LogoutServlet</url-pattern>
+	  </servlet-mapping>
+	  <servlet-mapping>
+	  	<servlet-name>UserManagerServlet</servlet-name>
+	  	<url-pattern>/UserManagerServlet</url-pattern>
+	  </servlet-mapping>
+	  <servlet-mapping>
+	  	<servlet-name>TestManagerServlet</servlet-name>
+	  	<url-pattern>/TestManagerServlet</url-pattern>
+	  </servlet-mapping>
+	  <servlet-mapping>
+	  	<servlet-name>MainPhotoServlet</servlet-name>
+	  	<url-pattern>/MainPhotoServlet</url-pattern>
+	  </servlet-mapping>
+	  <servlet-mapping>
+	  	<servlet-name>UserSearchServlet</servlet-name>
+	  	<url-pattern>/UserSearchServlet</url-pattern>
+	  </servlet-mapping>
+	  <servlet-mapping>
+	  	<servlet-name>GetPathServlet</servlet-name>
+	  	<url-pattern>/GetPathServlet</url-pattern>
+	  </servlet-mapping>
+	  <!-- 测试页面的映射配置 -->
+	  <servlet-mapping>
+	  	<servlet-name>TestServlet</servlet-name>
+	  	<url-pattern>/TestServlet</url-pattern>
+	  </servlet-mapping>
+	  <!-- 配置jstl标签 -->
+	  <jsp-config>
+	  	<taglib>
+		<taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
+		<taglib-location>/WEB-INF/c.tld</taglib-location>
+	  	</taglib>
+		  <!--  <taglib>
+		  	<taglib-uri>http://java.sun.com/jsp/jstl/fmt</taglib-uri>
+		  	<taglib-location>/WEB-INF/fmt.tld</taglib-location>
+		  </taglib>
+		  <taglib>
+		  	<taglib-uri>http://java.sun.com/jsp/jstl/functions</taglib-uri>
+		  	<taglib-location>/WEB-INF/fn.tld</taglib-location>
+		  </taglib>-->
+	  </jsp-config>
+</web-app>

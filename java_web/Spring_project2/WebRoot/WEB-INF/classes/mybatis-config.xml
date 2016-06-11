@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>  
+  
+    <!-- 实体类,简称 -设置别名 -->  
+    <typeAliases>  
+        <typeAlias alias="User" type="com.wyc.model.User" />
+        <typeAlias alias="Admin" type="com.wyc.model.Admin"/>
+        <typeAlias alias="report" type="com.wyc.model.report"/>
+    </typeAliases>  
+    <!-- 实体接口映射资源 -->  
+    <!-- 
+        说明：如果xxMapper.xml配置文件放在和xxMapper.java统一目录下，mappers也可以省略，因为org.mybatis.spring.mapper.MapperFactoryBean默认会去查找与xxMapper.java相同目录和名称的xxMapper.xml 
+    -->  
+    <!-- 所以这里可以省略 -->
+    <mappers>  
+        <!--  <mapper resource="com/wyc/mapping/UserMapper.xml" />-->
+        <mapper resource="com/wyc/mapping/AdminMapper.xml"/>
+        <mapper resource="com/wyc/mapping/ReportMapper.xml"/>
+        <mapper resource="com/wyc/mapping/PhotoMapper.xml"/>
+    </mappers>
+</configuration>   

@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+body{
+	margin:0 auto;
+	width:80%;
+}
+#span1,#span2{
+	color:red;
+	font-size:5px;
+}
